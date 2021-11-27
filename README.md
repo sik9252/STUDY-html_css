@@ -118,3 +118,44 @@ html 꾸미는 법 => style 속성을 이용해 스타일명:값 형태로 작�
 span 태그란 글자를 감쌀수 있는 별 뜻 없는 태그라고 생각하면 된다.
 
 ---
+
+## 레이아웃의 기초 - div
+
+div: division의 약자로, 화면을 분할하겠다는 의미. 네모난 박스 만들고 싶을때 사용하자.
+<br><br>
+
+### `<div>` 박스 디자인에 자주 사용하는 속성들
+
+1.  margin: 상하좌우 "바깥쪽" 여백 (margin-top/bottom/left/right도 있음)
+
+    > margin은 음수도 가능함
+
+    > margin: 5px 6px 7px 8px 과 같이 사용하면 순서대로 상 우 하 좌 여백을 준다.
+
+2.  padding: 상하좌우 "안쪽" 여백
+
+3.  border: 테두리(ex. border: 4px solid black;)
+
+4.  border-radius: 테두리를 둥글게 하고싶을때
+
+5.  div 박스도 가운데 정렬하고 싶으면 이미지와 마찬가지로 아래 css를 사용한다.
+
+> display: block;
+
+> margin-left: auto;
+
+> margin-right: auto;
+
+<br>
+
+### `<div>` 박스의 특징
+
+1. display: block 이 기본으로 있음(따라서 생략 가능)
+
+   또한 p, h1, li 등의 태그도 display: block 속성이 기본적으로 내장되어있다.
+
+   따라서 이 태그들을 그냥 사용하면 한 행을 전부 차지하게 되므로 display 속성에 inline, inline-block, flex 등을 이용해 다른 것을 부여해서 바꿀 수 있다.
+
+font-size, color, font-family, text-align과 같은 속성들은 부모 태그에 적어주면 안의 자식 태그들까지 전부 상속(inherit) 된다.
+
+---
