@@ -221,3 +221,50 @@ layout1.html의 mainContent에 css를 주고나면 아래 이미지처럼 해당
 이것을 사용하자. 이는 float 다음에 오는 요소에게 주면 float를 사용함으로써 발생하는 위와 같은 현상을 해결할 수 있다.
 
 ---
+
+## 레이아웃 만들기(2) - inline-block
+
+이전에 배운 float 말고 박스를 가로로 배치할 수 있는 다른 방법이 있다.
+
+```css
+.leftMenu {
+  display: inline-block;
+  width: 20%;
+  height: 400px;
+  background-color: cornflowerblue;
+}
+```
+
+> display: block -> 한 행을 전부 차지한다.
+
+> display: inline-block -> 자신의 크기만큼 자리를 차지한다.
+> ex) 한글에서 이미지 넣으면 글자와 어울림하는 느낌
+
+그런데 문제가 있다.
+
+### inline-block 사용하면 일어나는 문제점(1)
+
+inline-block을 사용하면 각 박스를 생성한 코드 사이의 빈 공간(ex. 스페이스바)만큼 실제 레이아웃 사이에도 공백이 생겨버려 가로배치가 아닌 세로배치가 될 수도 있다.
+
+따라서 inline-block을 사용하려면 공백을 제거해줘야 한다.
+
+<공백 제거 Tip>
+
+1. html 주석을 이용해 엔터를 사용한처럼 만들어주기
+2. 부모 태그에 font-size: 0px; 주기
+
+근데 부모 태그에 font-size: 0px을 주면 그 아래 자식들 블록 안에 글을 작성하면 크기가 0이라 보이지 않게 된다. 그래서 글을 쓸 블록 태그에 다시 font-size를 줘야한다.
+
+(즉, 공백 제거하기 귀찮으므로 그냥 float를 쓰는게 나을것 같다.)
+
+### inline-block 사용하면 일어나는 문제점(2)
+
+inline-block으로 생성된 박스 안에 p태그 같은거 이용해서 글쓰면 정렬이 망가진다.
+
+왜 그럴까?
+
+글자를 입력할때 가상의 baseline이 존재하는데 만일 baseline이 옆에 존재한다면 display: inline-block 요소들이 baseline의 위에 오려고하기 때문이다.
+
+<strong>해결법</strong>은 해당 요소의 스타일에 `vertical-align` 속성값을 주는것!
+
+vertical-align 속성은 상하정렬의 역할을 하는 것으로 위로 보낼건지 밑으로 보낼건지 결정하는건데 이는 inline 을 가지고 있는 요소들에만 적용이 가능하다.
