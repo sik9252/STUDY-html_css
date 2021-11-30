@@ -159,3 +159,65 @@ div: division의 약자로, 화면을 분할하겠다는 의미. 네모난 박�
 font-size, color, font-family, text-align과 같은 속성들은 부모 태그에 적어주면 안의 자식 태그들까지 전부 상속(inherit) 된다.
 
 ---
+
+## 레이아웃 만들기(1) - float
+
+Tip) 여러 레이아웃을 만들기 전에 여러 레이아웃을 한번에 감싸는 박스를 만들어두면 유용하다.
+
+생성한 박스들을 눈에 보이게 하려면 스타일에 width와 height 값을 주자.
+
+layout1.html의 mainContent에 css를 주고나면 아래 이미지처럼 해당 박스가 leftMenu의 오른쪽이 아닌 아래쪽에 나타나는것을 볼 수 있다. 왜 그럴까?
+
+<img src="image/mainContentEx.png" style="width:300px; height:200px"><br>
+
+> <strong>div 박스들은 모두 display: block 속성을 내장</strong>하고 있기 때문에 가로행을 전부 차지한다.
+> 따라서 leftMenu의 width: 20%여도 실제로는 화면의 가로행을 다 차지하고 있기 때문에 다음 div 박스는 아래에 위치하게 된다.
+
+이것을 해결하는 방법에는 먼저 css에 float 속성을 이용하는 방법이 있다.
+
+`float: left;`
+
+이는 해당 요소를 붕 띄워서 왼쪽에 정렬하라는 의미를 가지고 있다.
+
+오른쪽으로 정렬하고 싶으면 float: right를 사용하자.
+
+<span style="color: orange">즉, 박스를 가로로 배치할 때 float를 사용해보자.</span>
+
+아래 코드처럼 레이아웃 구조가 있다고 해보자.
+
+```html
+<body>
+  <div class="container">
+    <div class="header"></div>
+    <div class="leftMenu"></div>
+    <div class="mainContent"></div>
+    <div class="footer"></div>
+  </div>
+</body>
+```
+
+```css
+/* footer의 css */
+.footer {
+  width: 100%;
+  height: 100px;
+  background-color: grey;
+}
+```
+
+이때 footer에 css 스타일을 작성하면 footer는 아래 이미지처럼 leftMenu와 mainContent의
+뒤에 가려져서 안보이게 된다.
+
+<img src="image/footerEx.png" style="width:300px; height:200px">
+
+<br>
+이렇게 되는 이유는 이전에 leftMenu와 mainContent의 스타일로 float를 주었기 때문에 이 둘은 공중에 떠있는 상태다. (아까 float를 사용하면 요소가 붕 뜬다고 적어놨다.)
+따라서 footer는 이 붕 떠있는 요소들 뒤에 위치하게 되는 것이다.
+
+이를 해결하려면 어떻게 해야할까?
+
+`clear: both;`
+
+이것을 사용하자. 이는 float 다음에 오는 요소에게 주면 float를 사용함으로써 발생하는 위와 같은 현상을 해결할 수 있다.
+
+---
