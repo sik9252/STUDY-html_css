@@ -1,0 +1,44 @@
+.main-background {
+  width: 800px;
+  height: 500px;
+  padding: 1px;
+  background-image: url(../image/prettyBackground.png);
+  /* 이미지 공백 제거 */
+  background-size: cover;
+  /* 이미지 반복 제거 */
+  background-repeat: no-repeat;
+  background-position: center;
+  /* 필터 조정 */
+  /* filter: brightness(70%); */
+}
+
+.main-title {
+  color: black;
+  font-size: 40px;
+  margin: 150px 0px 20px 0px;
+  text-align: center;
+}
+
+.main-description {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.main-button {
+  background-color: aliceblue;
+  color: #1e6b7b;
+  font-size: 25px;
+  margin: 50px 0px 0px 0px;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  /* 아래 3줄은 버튼을 가운데 정렬하기 */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

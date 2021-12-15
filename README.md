@@ -456,3 +456,66 @@ Q. 그럼 아래 코드에서 모든 `<a></a>`의 폰트 사이즈를 20px로 �
 ```
 
 ---
+
+## 배경 이쁘게 만들기 & margin collapse effect
+
+### 배경 관련 css 속성
+
+```css
+.main-background {
+  background-image: url(..image/XXX.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+```
+
+1. image를 url 경로에 존재하는 이미지 파일로 설정
+
+2. 배경 사이즈를 설정하는데 cover, contain, XX% 등의 옵션이 있음 cover은 배경으로 꽉 채워주라는 의미, contain은 배경이 잘리지 않게 꽉 채워주라는 의미이다. XX%는 해당 화면의 XX%의 크기로 채워주라는 의미
+
+3. 일정 크기를 넘어서면 반복되는 배경을 제거
+
+4. 배경 위치 조정
+
+5. 웹사이트가 스크롤될 때 배경이 신기하게 동작하게 만들때 사용
+
+<br>
+
+### 배경 2개 겹치기
+
+콤마(,)를 이용해 2개 겹치면 된다.
+
+```css
+.main-background {
+  background-image: url(..image/XXX.jpg), url(OOO.jpg);
+}
+```
+
+이제 배경에 글도 넣고 이쁘게 꾸며보려고 했는데 배경 안의 글자에 margin-top을 주는 순간 글자박스만 내려오는 것이 아닌 이미지 자체가 margin-top의 영향을 받게된다.
+
+```html
+<div class="main-background">
+  <h4 class="main-title">Buy Our Foods!</h4>
+</div>
+```
+
+```css
+.main-title {
+  color: white;
+  font-size: 40px;
+  /* 여기 margin-top 줬을때 발생하는 현상*/
+  margin-top: 200px;
+}
+```
+
+우리는 이를 <strong>margin collapse effect</strong>라고 부르며 이는 해당 예제처럼 박스 2개의 위쪽 테두리가 겹쳐있는 경우 margin이 하나로 합쳐지는 현상이 발생한다고 생각하면 된다.
+
+박스 2개가 겹쳐있지 않고 딱 붙어있는 경우에도 발생할 수 있다.
+
+해결법은 <strong>박스 2개의 테두리를 떨어트리면</strong> 된다.
+
+ex) 부모 태그에 padding: 1px; 주기
+
+---
