@@ -648,3 +648,100 @@ table 태그에 border-collapse: collapse; 등 */
 => https://github.com/necolas/normalize.css/blob/master/normalize.css
 
 ---
+
+## form과 input
+
+form은 form 태그로 생성한다.
+
+```html
+<form action="경로" method="GET/POST">
+  <input />
+</form>
+```
+
+### 자주 사용하는 input의 type
+
+```html
+<input type="text" />
+<input type="email" />
+<input type="password" />
+<input type="radio" />
+<input type="file" />
+<input type="checkbox" />
+<!-- 전송 버튼 만드는법 -->
+<input type="submit" />
+<button type="submit">전송</button>
+
+<select>
+  <option>옵션1</option>
+</select>
+
+<textarea></textarea>
+```
+
+### input에 넣는 속성들
+
+```html
+<form>
+  <input type="" value="" placeholder="" name="" />
+</form>
+```
+
+1. type: input의 유형
+2. value: 미리 입력된 값
+3. placeholder: 배경 글자
+4. name: 서버 기능 개발에 필요한 input의 이름 설정
+
+name은 input의 내용을 서버로 전달할때 중요한 역할을 한다.
+
+### input 셀렉터
+
+input 스타일 디자인할때 input도 셀렉터를 사용할수 있다.
+
+input[속성명=속성값]
+
+ex) input[type=email] {}
+
+<Contact us 창 만들기 완성본>
+
+<img src="image/contactUs.png" style="width:auto; height:auto; border:black;">
+
+같은 크기로 정렬할때 아래 코드처럼 <u>하나의 큰 덩어리로 비슷한 종류의 블럭끼리 묶어주고 그것을 하나의 부모로 해서 %는 부모에 따라서 맞춰지는 거니까 width: 100%;와 같은 속성으로 맞춰</u>주면 편리하게 같은 크기로 딱딱 맞춰줄수 있는 느낌을 받음. 그 전까지는 width: n px로 직접 값을 늘리고 줄이며 맞춰줬었는데...
+
+```html
+<!-- 하나의 큰 부모 -->
+<form class="form-container">
+  <!--크기를 일정하게 맞춰줄 블럭 1-->
+  <div class="email-box">
+    Your Email<input
+      class="email-form"
+      type="email"
+      placeholder="email@example.com"
+    />
+  </div>
+  <!--크기를 일정하게 맞춰줄 블럭 2-->
+  <div class="message-box">
+    Message<textarea class="message-form"></textarea>
+  </div>
+</form>
+```
+
+```css
+.form-container {
+  width: 100%;
+}
+.email-form {
+  width: 100%;
+  display: block;
+  height: 30px;
+  margin-top: 5px;
+}
+.message-form {
+  display: block;
+  width: 100%;
+  height: 100px;
+  margin-top: 5px;
+}
+```
+
+---
