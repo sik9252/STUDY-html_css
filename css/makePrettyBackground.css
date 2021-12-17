@@ -3,15 +3,18 @@ body {
 }
 
 .main-background {
-  width: 800px;
+  width: 80%;
+  max-width: 800px;
   height: 500px;
   padding: 1px;
+  margin: auto;
   background-image: url(../image/prettyBackground.png);
   /* 이미지 공백 제거 */
   background-size: cover;
   /* 이미지 반복 제거 */
   background-repeat: no-repeat;
   background-position: center;
+  position: relative;
   /* 필터 조정 */
   filter: opacity(90%);
 }
@@ -50,15 +53,12 @@ body {
 }
 
 .sub-background {
-  width: 550px;
-  height: 170px;
-  background-color: #eee;
-  position: absolute;
-  left: 120px;
-  top: 470px;
-}
-
-.sub-description {
-  padding: 30px;
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
   text-align: center;
+  background-color: #eee;
+  position: relative;
+  top: -40px;
 }
