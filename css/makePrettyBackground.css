@@ -1,3 +1,7 @@
+body {
+  margin: 0px;
+}
+
 .main-background {
   width: 800px;
   height: 500px;
@@ -9,7 +13,7 @@
   background-repeat: no-repeat;
   background-position: center;
   /* 필터 조정 */
-  /* filter: brightness(70%); */
+  filter: opacity(90%);
 }
 
 .main-title {
@@ -38,7 +42,23 @@
   font-weight: 600;
   cursor: pointer;
   /* 아래 3줄은 버튼을 가운데 정렬하기 */
-  display: block;
+  /* display: block;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; */
+  position: relative;
+  left: 300px;
+}
+
+.sub-background {
+  width: 550px;
+  height: 170px;
+  background-color: #eee;
+  position: absolute;
+  left: 120px;
+  top: 470px;
+}
+
+.sub-description {
+  padding: 30px;
+  text-align: center;
 }

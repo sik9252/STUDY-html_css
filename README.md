@@ -518,4 +518,67 @@ Q. 그럼 아래 코드에서 모든 `<a></a>`의 폰트 사이즈를 20px로 �
 
 ex) 부모 태그에 padding: 1px; 주기
 
+<직접 만들어본 배경 완성본>
+<img src="image/makePrettyBackground.png" style="width:auto; height:auto">
+
+---
+
+## position 속성과 좌표 레이아웃
+
+display: block 속성을 가지고 있는 블럭들을 가운데 정렬하려면 원래는 아래와 같은 속성값들을 부여했어야 했다.
+
+```css
+.main-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+```
+
+하지만, position 속성을 이용해 좌표속성을 적용할 기준점을 정해 가운데 정렬하는 방법도 존재한다.
+
+<position 속성값 종류>
+
+```css
+.example {
+  position: static;
+  position: relative;
+  position: absolute;
+  position: fixed;
+}
+```
+
+1. static: 기준이 없음(좌표이동 원하지 않는 경우 지정)
+2. relative: 자신의 원래 위치를 기준으로 이동
+3. absolute: 자신의 부모를 기준으로 이동
+4. fixed: 브러우저 창(현재 화면)을 기준으로 요소 고정
+
+ex) 화면 스크롤할때 고정되어있길 바라면 fixed 사용
+
+position 속성으로 기준점을 정해주고 top, left, bottom, right 속성을 사용해 좌표를 이동시켜주면 된다.
+
+<br>
+
+※ 주의할점 ※
+
+position 속성을 부여하면 마치 이전에 배운 float 처럼 요소가 공중에 뜬다!
+
+<참고>
+
+position: absolute;를 적용해 요소를 가운데 정렬하기
+
+```css
+.example1 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+```
+
+배운 position 속성을 이용해 main-background 위에 떠있는 sub-background를 생성해 보았다.
+
+<img src="image/positionPractice.png" style="width:auto; height:auto">
+
 ---
