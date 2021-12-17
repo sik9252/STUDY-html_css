@@ -581,4 +581,70 @@ position: absolute;를 적용해 요소를 가운데 정렬하기
 
 <img src="image/positionPractice.png" style="width:auto; height:auto">
 
+(나는 속성 여러개 써서 가운데 정렬했는데 알고보니 margin: auto 쓰니까 알아서 정렬해준다?!)
+
+---
+
+## width와 box-sizing
+
+### 1) z-index
+
+z-index 값이 높을수록 앞쪽에 존재한다.
+
+### 2) max-width
+
+width 속성에 % 값을 주면 부모를 기준으로 해당 %의 크기를 가지게 된다.
+
+ex) width: 80% => 부모 width의 80% 크기
+
+반응형 웹페이지를 제작할때 %를 많이 사용한다.
+
+PC 사이즈에서 그냥 width에 %를 주게되면 만약 화면이 큰 모니터를 사용하는 경우 요소가 너무 커진다는 문제점이 있다. 따라서 <strong>max-width를 같이 사용해 그 이상으로 커지지 않게 제한</strong>을 두는 방법을 사용한다.
+
+min-width, max-height... 등도 있다.
+
+※ 주의할점 ※
+
+width는 content 영역의 넓이를 의미하기 때문에 padding, border를 고려하지 않는다. 따라서 max-width를 600px로 설정해도 padding을 너무 많이 주게되면 실제 보여지는 박스의 폭은 주어진 padding만큼 더 늘어날 수 있어 다른 요소에 영향을 줄 수도 있다.
+
+ex) box의 width: 600px인데, padding: 50px주면 실제 보이는 width는 700px이 된다.
+
+<해결책>
+
+content 부분만 width로 설정하지 말고 padding과 border도 포함하면 된다. <strong>box-sizing: border-box; 속성을 주면 padding과 border도 포함</strong>된다.
+
+```css
+.exampleBox {
+  box-sizing: border-box; /*박스의 폭은 border까지 포함*/
+  box-sizing: content-box; /*박스의 폭은 padding 안쪽*/
+}
+```
+
+즉, 개발 시작 전에 div를 가진 모든 요소의 속성에 box-sizing: border-box를 주고 시작하면 편하다.
+아래 코드는 CSS 파일 작성시 기본으로 쓰면 좋을 속성들이다.
+
+```css
+html {
+  line-height: 1.15; /*기본 행간 높이*/
+}
+
+body {
+  margin: 0px;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+/* 모든 h, p 태그 margin 균일하게 설정
+li, a 태그에 text-decoration: none;
+table 태그에 border-collapse: collapse; 등 */
+```
+
+브라우저마다 디자인이 다르게 보일수 있으므로 호환성 문제를 해결하기 위해 CSS 파일의 맨 위에 호환성 이슈 해결책부터 첨부하는 경우가 많다. 혹은 html에 link 태그로 추가.
+
+이 CSS 파일을 다운받아서 개발 시작 전에 link 태그에 첨부해서 사용하면 좋다!
+
+=> https://github.com/necolas/normalize.css/blob/master/normalize.css
+
 ---
