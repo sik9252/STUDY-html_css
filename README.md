@@ -845,7 +845,7 @@ th {
 
 => tableLayout.html / tableLayout.css
 
-1) nth-child(n) 셀렉터는 n번째 등장하는 요소만 스타일링할 때 사용한다.
+1. nth-child(n) 셀렉터는 n번째 등장하는 요소만 스타일링할 때 사용한다.
 
 ```css
 /* td의 3번째 애들을 선택하라 */
@@ -858,7 +858,7 @@ td:nth-child(3) {
 }
 ```
 
-2) colspan="" / rowspan="" 속성을 이용해 셀 병합을 할 수 있다.
+2. colspan="" / rowspan="" 속성을 이용해 셀 병합을 할 수 있다.
 
 ```html
 <tr>
@@ -866,7 +866,7 @@ td:nth-child(3) {
 </tr>
 ```
 
-3) 아래와 같이 콤마(,)로 여러개의 셀렉터를 지정할수 있으며 border-bottom과 같은 속성으로 원하는 테두리에만 스타일을 할 수도 있다.
+3. 아래와 같이 콤마(,)로 여러개의 셀렉터를 지정할수 있으며 border-bottom과 같은 속성으로 원하는 테두리에만 스타일을 할 수도 있다.
 
 ```css
 /* cart-table 안에 있는 모든 td 태그 */
