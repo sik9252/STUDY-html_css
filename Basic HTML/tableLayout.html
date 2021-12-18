@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>TableLayout</title>
+    <link href="../css/tableLayout.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="cart-background">
+      <h3>Your shopping cart</h3>
+      <table class="cart-table">
+        <!-- 표의 헤더 넣을 것 -->
+        <thead>
+          <tr>
+            <th></th>
+            <th>ITEM</th>
+            <th>AMOUNT</th>
+            <th>TOTAL</th>
+            <th>TOTAL</th>
+          </tr>
+        </thead>
+        <!-- 상품들을 넣을 것 -->
+        <tbody>
+          <!-- 표 2행, 아이템 1 -->
+          <tr>
+            <td>
+              <img
+                src="../image/sony1.png"
+                alt="sony1.png"
+                style="width: 70px; height: 70px"
+              />
+            </td>
+            <td>
+              <p>SONY</p>
+              <p>FE 70-200 mm F2.8 GM OSS</p>
+            </td>
+            <td>1</td>
+            <td>€ 1979.00</td>
+            <td>€ 1979.00</td>
+          </tr>
+          <!-- 표 3행, 아이템 2 -->
+          <tr>
+            <td>
+              <img
+                src="../image/sony2.png"
+                alt="sony1.png"
+                style="width: 70px; height: 70px"
+              />
+            </td>
+            <td>
+              <p>SONY</p>
+              <p>Sonnar T* E 24mm F1.8 ZA</p>
+            </td>
+            <td>1</td>
+            <td>€ 989.00</td>
+            <td>€ 989.00</td>
+          </tr>
+          <!-- 표 4행, 총 합 -->
+          <tr>
+            <td colspan="5"><p class="total-price">€ 2968.00</p></td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="#">Edit your shopping cart</a>
+      <button class="payment-btn">Choose payment method</button>
+    </div>
+  </body>
+</html>

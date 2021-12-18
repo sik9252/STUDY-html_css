@@ -780,3 +780,104 @@ textarea,
 결과적으로 많이 바뀐것은 없지만 전보다는 조금 더 깔끔하고 이쁜 디자인을 갖게 된것 같고 쓸데없는 중복 css 코드들이 지워져서 코드가 보기 편해진 느낌을 받았다.
 
 ---
+
+## Table 레이아웃 & vertical-align
+
+장바구니같은거 만들때 자주 사용하는 표 레이아웃에 대해 공부
+
+`<table></table>` 태그를 이용해 표를 만들수 있다.
+
+```html
+<body>
+  <div>
+    <table>
+      <tr>
+        <th>1</th>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+    </table>
+  </div>
+</body>
+```
+
+1. `<th></th>` 태그를 사용하면 제목처럼 굵게 처리된다.
+2. `<thead></thead>`, `<tbody></tbody>`와 같은 태그를 사용하기도 하는데 이는 헤드부분 영역을 구분하기 위해 사용되며
+
+- 제목 행 => `<thead></thead>`안에
+- 일반 행 => `<tbody></tbody>`안에
+
+  넣으면 좋다.
+
+table 태그를 생성하면 기본적으로 셀 간에 간격이 생기게 되는데 `border-collapse: collapse` 속성을 이용해 셀 간의 간격을 없앨수 있다.
+
+또한 div 태그를 가지고도 표를 만들수 있다. (보통 사용할일은 드뭄)
+
+```html
+<div style="display: table">
+  <div style="display: table-row">
+    <div style="display: table-cell">1</div>
+    <div style="display: table-cell">2</div>
+  </div>
+</div>
+```
+
+### vertical-align 속성
+
+vertical-align: top/middle/bottom/super/sub;
+
+1. inline/inline-block 요소 간의 세로정렬할 때 사용한다.
+
+display: inline; -> 항상 옆으로 채워지는 폭과 너비가 없는 요소이다. ex) span 태그
+
+이러한 태그를 가지고 있는 요소들을 나란히 배치했을 때 서로 높이가 맞지 않는 경우 margin-top과 같은 속성 대신 사용할 수 있다.
+
+2. table 안에서 상하정렬할 때 사용한다. (top/middle/bottom)
+
+```css
+td,
+th {
+  vertical-align: middle;
+}
+```
+
+<장바구니 페이지 만들어보기>
+
+=> tableLayout.html / tableLayout.css
+
+1) nth-child(n) 셀렉터는 n번째 등장하는 요소만 스타일링할 때 사용한다.
+
+```css
+/* td의 3번째 애들을 선택하라 */
+td:nth-child(3) {
+  text-align: center;
+}
+
+/* .cart-table 안의 모든 th의 3번째 나오는 애들을 선택해라! */
+.cart-table th:nth-child(3) {
+}
+```
+
+2) colspan="" / rowspan="" 속성을 이용해 셀 병합을 할 수 있다.
+
+```html
+<tr>
+  <td colspan="5"><p class="total-price">€ 2968.00</p></td>
+</tr>
+```
+
+3) 아래와 같이 콤마(,)로 여러개의 셀렉터를 지정할수 있으며 border-bottom과 같은 속성으로 원하는 테두리에만 스타일을 할 수도 있다.
+
+```css
+/* cart-table 안에 있는 모든 td 태그 */
+.cart-table td,
+.cart-table th {
+  padding: 15px;
+  /* 셀 병합이 아니라 이걸로 세로줄 없앨수 있음 */
+  border-bottom: 1px solid #bcd0dd;
+}
+```
+
+<img src="image/tableLayout.png" style="width:auto; height:auto; border:black;">
+
+---

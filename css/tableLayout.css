@@ -1,0 +1,58 @@
+table {
+  border-collapse: collapse;
+}
+
+td,
+th {
+  vertical-align: middle;
+}
+
+td:nth-child(3) {
+  text-align: center;
+}
+
+a {
+  color: #1e6b7b;
+  text-decoration: none;
+}
+
+.cart-background {
+  width: 100%;
+  background-color: #bcd0dd;
+  padding: 30px;
+}
+
+.cart-table {
+  /* 반응형 */
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* cart-table 안에 있는 모든 td 태그 */
+.cart-table td,
+.cart-table th {
+  padding: 15px;
+  /* 셀 병합이 아니라 이걸로 세로줄 없앨수 있었음 */
+  border-bottom: 1px solid #bcd0dd;
+}
+
+.total-price {
+  text-align: right;
+  padding-right: 15px;
+}
+
+.payment-btn {
+  margin-left: 300px;
+  background-color: #1e6b7b;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
