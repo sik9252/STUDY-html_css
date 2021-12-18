@@ -881,3 +881,137 @@ td:nth-child(3) {
 <img src="image/tableLayout.png" style="width:auto; height:auto; border:black;">
 
 ---
+
+## 인터랙티브 버튼 만들기
+
+pseudo-class를 이용해 인터랙티브 버튼을 만들수 있다.
+
+button, input, a 태그 등에 자주 사용한다.
+
+```css
+.btn {
+  /* 기본적인 버튼 생성 */
+  padding: 15px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: coral;
+  color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: chocolate;
+}
+
+.btn:focus {
+  background-color: grey;
+}
+
+.brn:active {
+  background-color: brown;
+}
+
+input:focus {
+  border: 2px solid red;
+}
+
+/* 방문 전 링크 상태 */
+a:link {
+  color: red;
+}
+
+/* 방문 후 링크 상태 */
+a:visited {
+  color: black;
+}
+```
+
+- cursor: pointer/cell ... => 마우스 오버시 커서 모양 변경
+
+<pseudo-class 종류>
+
+- :hover => 마우스 올렸을 때 스타일 변경
+- :active => 마우스를 누르고 있는 동안
+- :focus => 클릭하고 나서 커서가 찍혀있을 때
+
+※ hover, focus를, active 동시에 적용할때는 순서에 주의해야 한다.
+
+hover -> focus -> active 순으로 정의해줘야 정상 작동한다!
+
+---
+
+## OOCSS, BEM
+
+근데 현재처럼 React나 Vue를 사용하는 경우 예전만큼 중요하거나 유용한건 아니다.
+
+**OOCSS(Objected Oriented CSS)**: 코드 양을 줄일수 있는 class 작명법이다.
+
+쉽게 말해, 뼈대와 살을 분리하는 방법이라고 할수 있는데 이렇게 코드를 작성하면
+
+1. 중복된 스타일을 재사용할수 있다.
+
+2. 유지보수가 편리해진다.
+
+3. 코드를 빠르게 작성할수 있다.
+
+라는 이점을 얻을수 있다.
+
+예로 아래와 같은 html에 button이 있다고 하자.
+
+```html
+<button class="main-btn bg-red">빨간 버튼</button>
+<button class="main-btn bg-blue">파란 버튼</button>
+```
+
+```css
+/* 버튼 만들때마다 재사용할 뼈대 */
+.main-btn {
+  padding: 15px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* 각 버튼마다 새롭게 적용할 살점 */
+.bg-red {
+  background: red;
+}
+
+.bg-blue {
+  backgroudn: blue;
+}
+```
+
+**BEM(Block Element Modifier)**: class를 작명하는게 어려울때 사용하면 편한 작명법이다.
+
+1. 덩어리(컴포넌트) 이름으로 시작하는것이 좋다.
+
+2. 태그마다 다른 class명을 부여할때 태그명을 뒤에 붙인다.
+
+```html
+<div class="profile">
+  <img class="profile-img" />
+  <h4 class="profile-h4"></h4>
+  <p class="profile-content"></p>
+  <button class="profile-button"></button>
+</div>
+```
+
+3. 같은 태그들의 디자인을 구분하려면 --수식어(속성)를 붙인다.
+
+빨강, 파랑 버튼과 큰, 작은 버튼이 각각 필요하다면
+
+--red
+
+--blue
+
+--big
+
+--small
+
+이런식으로 --을 이용한 수식어를 붙여주면 쉽다.
+
+※ 하지만 이런 방법은 html, css 파일이 방대한 경우 유용한 방법이고, 후에 공부할 React나 Vue를 사용하는 경우에는 html 페이지 단위가 아닌 작은 컴포넌트 단위로 개발해 class들이 중복되어도 컴포넌트끼리 스타일이 간섭되지 않기 때문에 그닥 유용하지 않다.
+
+---
