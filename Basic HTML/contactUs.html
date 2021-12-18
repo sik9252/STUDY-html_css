@@ -7,23 +7,33 @@
   </head>
   <body>
     <div class="main-container">
-      <div class="main-title">Contact us</div>
-      <form class="form-container">
+      <form>
+        <div class="main-title">Contact us</div>
         <div class="email-box">
-          Your Email<input
-            class="email-form"
+          <p>Your Email</p>
+          <input
+            class="input-form"
             type="email"
             placeholder="   email@example.com"
           />
         </div>
         <div class="firstName-box">
-          First name<input class="firstname-form" />
+          <p>First name</p>
+          <input class="input-form" />
         </div>
-        <div class="lastName-box">Last name<input class="lastName-form" /></div>
+        <div class="lastName-box">
+          <p>Last name</p>
+          <input class="input-form" />
+        </div>
+        <!-- float 제거 -->
+        <div style="clear: both"></div>
         <div class="message-box">
-          Message<textarea class="message-form"></textarea>
+          <p>Message</p>
+          <textarea class="input-form"></textarea>
         </div>
-        <div class="subcscribe-check"><input type="checkbox" /> Subscribe</div>
+        <label class="subcscribe-check"
+          ><input type="checkbox" /> Subscribe</label
+        >
         <button class="submit-btn" type="submit">SEND</button>
       </form>
     </div>
