@@ -1015,3 +1015,155 @@ hover -> focus -> active 순으로 정의해줘야 정상 작동한다!
 ※ 하지만 이런 방법은 html, css 파일이 방대한 경우 유용한 방법이고, 후에 공부할 React나 Vue를 사용하는 경우에는 html 페이지 단위가 아닌 작은 컴포넌트 단위로 개발해 class들이 중복되어도 컴포넌트끼리 스타일이 간섭되지 않기 때문에 그닥 유용하지 않다.
 
 ---
+
+## 웹 폰트 넣는 법
+
+<기본>
+
+```css
+body {
+  margin: 0px;
+  font-family: "nanumsquare", "arial", "...";
+}
+```
+
+콤마(,)로 폰트명을 여러개 쓰면 가장 왼쪽에 있는 폰트부터 실패시 그 다음 폰트로 넘어가면서 적용된다.
+
+혹은 폰트 파일을 호스팅 해주는 Google Fonts를 사용하자.
+
+<커스텀>
+
+```css
+@font-face {
+  font-family: "폰트 이름";
+  src: url(폰트 경로);
+}
+
+@font-face {
+  font-family: "폰트 이름";
+  /* 폰트 굵기도 커스텀 설정해줘야 이쁨 */
+  font-weight: 800;
+  src: url(폰트 경로);
+}
+
+body {
+  margin: 0px;
+  font-family: "폰트 이름";
+}
+```
+
+@font-face: 준비한 폰트 파일을 CSS에서 사용 가능하게 등록하는 과정
+
+웹 폰트용으로 나온 파일인 .woff 파일 쓰자. ttf에 비해 용량을 3분의 1로 줄여준다.
+
+굴림체와 같은 폰트는 기본적으로 조금 거칠게 출력되는데 이를 부드럽게 처리하려면 폰트를 매우 조금 회전시켜보면 된다.
+
+```css
+폰트가 적용된 태그들 {
+  transform: rotate(0.03deg);
+}
+```
+
+---
+
+## 레이아웃 만들기(3) - Flexbox
+
+이전까지는 블럭들을 가로로 배치하기 위해 float: left나 display: inline-block과 같은 방법을 사용했다. 하지만, 이런 방법은 추가해야할 속성들이 많으므로 display: flex;라는 속성을 이용해 요소들의 배치를 쉽게 할 수 있다.
+
+flex의 특징은 마치 inline 요소 + table
+
+즉, flex가 적용된 요소에 width: 600px으로 줘도 최대한 600px을 차지하려고 하지만, 정확하게 600px을 차지하지 않음.
+
+<flex 이용시 정렬>
+
+- justify-content
+- flex-direction: column/row(반응형 웹)
+- flex-wrap(width가 커지면 밑으로 보내고 싶을때)
+- align-items(상하정렬)
+
+- flex-grow(특정 박스만 키우기)
+
+```html
+<body>
+  <div class="flexbox">
+    <div class="flexbox-item logo">Logo</div>
+    <!-- 박스 사이를 띄우려면 -->
+    <div style="flex-grow: 1"></div>
+    <div class="flexbox-item products">Products</div>
+    <div class="flexbox-item services">Services</div>
+  </div>
+</body>
+```
+
+- align-content(박스가 가로로 여러줄일 때 상하배치 조절)
+  : flex-start, flex-end, center, stretch, space-between, space-around;
+
+---
+
+## head 태그 안에 들어갈 내용
+
+1. 각종 CSS 파일들
+
+```html
+<head>
+  <link href="/css/main.css" rel="stylesheet" />
+</head>
+```
+
+2. 스타일 태그
+
+```html
+<head>
+  <style>
+    .button {
+      color: red;
+    }
+  </style>
+</head>
+```
+
+html 파일은 위에 있는 코드 먼저 읽기 때문에 style은 위에 적는게 나음
+
+3. 사이트 제목
+
+```html
+<head>
+  <title>사이트 제목</title>
+</head>
+```
+
+4. 여러 meta 태그
+
+```html
+<head>
+  <meta charset="UTF-8" />
+</head>
+```
+
+- charset: 사이트 인코딩 형식 지정
+- name, content: 사이트 검색 결과 화면에 뜨는 글귀 수정
+- name="viewport": 사이트 초기 zoom 레벨이나 폭을 지정
+
+ex) width=device-width -> 모바일 기기의 실제 폭으로 렌더링해라. 반응형 웹 만들 때 사용
+
+5. open graph
+
+```html
+<head>
+  <meta property="og:image" content="/이미지경로.jpg" />
+  <meta property="og:description" content="설명" />
+  <meta property="og:title" content="제목" />
+</head>
+```
+
+6. Favicon
+
+```html
+<head>
+  <link rel="icon" href="아이콘경로.ico" type="image/x-icon" />
+</head>
+```
+
+웹사이트 제목 옆에 뜨는 작은 아이콘 꾸미기(32 x 32 사이즈)
+
+rel 속성을 조정해서 바탕화면에 바로가기 추가한 경우 뜨는 아이콘 같은것도 꾸미기 가능
