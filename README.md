@@ -1167,3 +1167,131 @@ ex) width=device-width -> 모바일 기기의 실제 폭으로 렌더링해라. 
 웹사이트 제목 옆에 뜨는 작은 아이콘 꾸미기(32 x 32 사이즈)
 
 rel 속성을 조정해서 바탕화면에 바로가기 추가한 경우 뜨는 아이콘 같은것도 꾸미기 가능
+
+---
+
+## px 이외의 단위
+
+- px: 기본 단위
+- vw: 현재 브라우저의 폭에 비례해 설정(반응형 디자인시 유용)
+- vh: 현재 브라우저의 높이에 비례해 설정
+- rem: 기본 폰트사이즈(16px)에 비례 ex. 10rem = 160px
+
+예를들어 font-size만 키우는 경우 폰트 크기만 커지기 때문에 스타일이 깨져 보이므로 모든곳을 rem으로 크기지정하면 폰트 크기가 커져도 모든게 같이 커지기 때문에 깨져보이는 것을 막을 수 있다. (요즘엔 'ctrl+마우스휠' 하면 같이 커지는데 딱히 필요 없을듯...)
+
+- em: 내 폰트 사이즈의 X배
+
+---
+
+## 반응형 레이아웃
+
+반응형 사이트를 만들려면 아래 코드를 꼭 사용해야 한다.
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+그리고 css에 media query 문법을 사용한다.
+
+```css
+@media screen and (max-width: 1200px) {
+  /* ex) 브라우저 폭이 1200px 이하면 원래 40px였던 폰트 사이즈를 화면 크기가 설정한 기준 아래로 가면 30px로 바꾼다 */
+  .main-title {
+    font-size: 30px;
+  }
+}
+```
+
+media query 문법은 여러개 사용 가능하고 화면 큰사이즈 -> 작은 사이즈 순으로 작성한다. (아래처럼)
+
+breakpoint 기준 px 값은 다른 사람들도 자주 사용하는 값으로 설정하자.
+
+ex) 1200px -> 992px -> 768px -> 576px ...
+
+기본적으로 1200px 이하 = 태블릿 / 768px 이하 = 모바일
+
+```css
+@media screen and (max-width: 1200px) {
+  .main-title {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-title {
+    font-size: 20px;
+  }
+}
+```
+
+<반응형 레이아웃 직접 만들어보기>
+
+조건 1) 4개의 메뉴가 있음
+조건 2) 데스크탑 버전에서는 모든 메뉴를 한줄에 출력
+조건 3) 태블릿 버전에서는 2줄로 출력
+조건 4) 모바일 버전에서는 4줄로 출력
+
+```html
+<div class="services-container">
+  <div class="services-item">
+    <h4>Fast Shipping</h4>
+    <p>lorem ipsum</p>
+  </div>
+  <div class="services-item">
+    <h4>Good Service</h4>
+    <p>lorem ipsum</p>
+  </div>
+  <div class="services-item">
+    <h4>Free Coupons</h4>
+    <p>lorem ipsum</p>
+  </div>
+  <div class="services-item">
+    <h4>New Products</h4>
+    <p>lorem ipsum</p>
+  </div>
+</div>
+```
+
+```css
+.services-container {
+  width: 80%;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.services-item {
+  flex-basis: 25%;
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .services-item {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .services-item {
+    flex-basis: 100%;
+  }
+}
+```
+
+- 네줄에 표현하고 싶으면(하나의 요소가 한줄을 다 차지하고 싶으면) 100%
+
+- 두줄에 표현하고 싶으면 50%
+
+- 한줄에 표현하고 싶으면 25%
+
+화면 width를 100이라 하고 출력할 요소가 4개 있다고 하면
+`25+25+25+25 / 50+50 / 100` 이렇게 생각하면 원하는대로 레이아웃을 표현하기 쉽다.
+
+<flex-basis와 width의 차이>
+
+width는 요소의 너비를 결정한다. flex-basis는 요소의 너비를 결정한다고 할 수는 없고 다른 flex 속성(flex-grow, flex-direction 같은거)을 결정할때 기본 크기를 설정하는 것이라고 할 수 있다.
+
+즉, 내 생각으론 width는 200px로 두면 요소가 흩어져도 크기가 고정되어 있지만, flex-basis를 사용한 경우 콘텐츠 너비에 따라서 늘어나고 줄어든다고 할 수 있을 것 같다. width보다 조금 더 유연하달까?
+
+---
