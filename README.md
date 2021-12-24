@@ -1295,3 +1295,41 @@ width는 요소의 너비를 결정한다. flex-basis는 요소의 너비를 결
 즉, 내 생각으론 width는 200px로 두면 요소가 흩어져도 크기가 고정되어 있지만, flex-basis를 사용한 경우 콘텐츠 너비에 따라서 늘어나고 줄어든다고 할 수 있을 것 같다. width보다 조금 더 유연하달까?
 
 ---
+
+## IE 호환성 잡기
+
+조건부로 CSS 파일을 첨부한다.
+
+```html
+<!-- [if lt IE 10] -->
+<link href="css/ie.css" type="text/css" rel="stylesheet" />
+<!-- <![endif]> -->
+```
+
+---
+
+## Font Awesome 아이콘 넣기
+
+1. CDN으로 설치 => all.min.css파일 링크 복붙, head 태그 안에 첨부
+
+```html
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+  rel="stylesheet"
+/>
+```
+
+2. 직접 파일 다운해 첨부: css랑 webfonts 폴더만 남기고 css 폴더 안에 all, all.min 파일만 남기면 된다.
+
+위의 방법중 하나 실행 후 원하는 아이콘의 html을 복사해 원하는 위치에 붙여넣으면 된다.
+
+```html
+<div class="services-item">
+  <!-- 이런식으로 -->
+  <i class="fas fa-shopping-cart fa-2x"></i>
+  <h4>Fast Shipping</h4>
+  <p>lorem ipsum</p>
+</div>
+```
+
+---
