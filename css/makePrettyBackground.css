@@ -87,6 +87,42 @@ body {
   color: white;
 }
 
+.shop-background {
+  background-color: #eee;
+  padding: 20px;
+}
+
+.shop-container {
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+
+.shop-item {
+  width: 33%;
+  padding: 10px;
+}
+
+.shop-item img {
+  width: 100%;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 1s;
+}
+
+
+/* 트리거 */
+.overlay:hover {
+  opacity: 1;
+}
+
 @media screen and (max-width: 1200px) {
   .services-item {
     flex-basis: 50%;

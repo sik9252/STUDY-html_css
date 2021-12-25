@@ -1333,3 +1333,31 @@ width는 요소의 너비를 결정한다. flex-basis는 요소의 너비를 결
 ```
 
 ---
+
+## Transition 속성으로 애니메이션 구현하기
+
+애니메이션을 만드는 기본 STEP
+
+- transition을 사용해서 애니메이션을 만들수 있다.
+
+```
+1. 시작 스타일 생성
+2. 최종 스타일 생성
+3. 언제 최종 스타일로 변할시 트리거 생성
+   (hover 같은거)
+
+4. transition 속성으로 서서히 동작하게 조절하기
+```
+
+<transition 세부 속성>
+
+```css
+.box {
+  transition-delay: 1s; /* 시작 전 딜레이 */
+  transition-duration: 0.5s; /* 작동 속도 */
+  transition-property: opacity; /* 어떤 속성에 transition 입힐건지 */
+  transition-timing-function: ease-in; /* 동작 속도 그래프조정 */
+}
+```
+
+---
