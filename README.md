@@ -1360,4 +1360,18 @@ width는 요소의 너비를 결정한다. flex-basis는 요소의 너비를 결
 }
 ```
 
+transition 실습 파일
+
+=> transition-practice.html/.css
+
+<transition-before 이미지>
+
+<img src="image/transition-before.png" style="width:auto; height:auto;">
+
+<br>
+
+<transition-after 이미지>
+
+<img src="image/transition-after.png" style="width:auto; height:auto;">
+
 ---
