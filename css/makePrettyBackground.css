@@ -117,10 +117,30 @@ body {
   transition: all 1s;
 }
 
-
 /* 트리거 */
 .overlay:hover {
   opacity: 1;
+}
+
+.homework-bg {
+  background-color: #eee;
+  padding: 20px;
+}
+
+.homework-container {
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+
+.homework-item {
+  width: 33%;
+  padding: 10px;
+}
+
+.homework-item img {
+  width: 100%;
+  display: block;
 }
 
 @media screen and (max-width: 1200px) {
