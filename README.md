@@ -1374,4 +1374,8 @@ transition 실습 파일
 
 <img src="image/transition-after.png" style="width:auto; height:auto;">
 
+※ 추가 팁 ※
+
+개발자 도구에서 점 3개 -> 도구 더보기 -> 애니메이션 누르고 애니메이션 실행시켜보면 어떤 속성이 바뀌면서 애니메이션이 작동하는지 세세히 볼 수 있음.
+
 ---

@@ -1,0 +1,151 @@
+.main-container {
+  padding: 1px;
+  width: 100%;
+}
+
+.main-description {
+  padding: 1px;
+  display: flex;
+  background: linear-gradient(to top, #594eb9 0%, #4997dc);
+}
+
+.main-description-left {
+  color: white;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-bottom: 100px;
+}
+
+.main-description-left span {
+  font-size: 25px;
+}
+
+.main-description-right {
+  margin-left: 200px;
+}
+
+.main-description-right img {
+  float: right;
+  vertical-align: bottom;
+  width: 40%;
+  margin: 100px 50px 0px 0px;
+}
+
+.show-more-btn {
+  background-color: rgb(95, 95, 95);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sub-description {
+  padding: 50px;
+}
+
+.sub-description h3 {
+  text-align: center;
+  margin: auto;
+}
+
+.sub-description p {
+  text-align: center;
+  margin: auto;
+  padding-top: 10px;
+}
+
+.show-portfolio-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  background-color: rgb(78, 78, 78);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.offer-description {
+  padding: 1px;
+  background-color: #4e61c0;
+  color: white;
+  text-align: center;
+  margin: auto;
+}
+
+/* services */
+.offer-description p {
+  margin: 40px 0px 5px 0px;
+}
+
+/* What We offer */
+.offer-description span {
+  font-size: 20px;
+  margin: 5px 0px 15px 0px;
+}
+
+.item-box {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  background-color: #4e61c0;
+  padding-bottom: 50px;
+}
+
+.offer-item {
+  padding: 10px;
+}
+
+/* icon */
+.offer-item i {
+  color: #4e61c0;
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border-radius: 50%;
+  padding-top: 25px;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+/* Responsive, Experiments, Quickness, Global Shipping */
+.offer-item span {
+  display: block;
+  font-size: 20px;
+  margin: 10px 0px 10px 0px;
+  color: white;
+}
+
+/* lorem ipsum i love coding */
+.offer-item p {
+  width: 200px;
+  margin: 10px 0px 10px 0px;
+  color: white;
+}
+
+.can-do-title {
+  padding: 30px;
+}
+
+.can-do-title p {
+  text-align: center;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.can-do-title h3 {
+  text-align: center;
+  margin: auto;
+}
+
+.explain-can-do {
+}
+
+.do-item {
+}
