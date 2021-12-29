@@ -145,7 +145,60 @@
 }
 
 .explain-can-do {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
 }
 
 .do-item {
+  position: relative;
+  flex: 1 1 40%;
+}
+
+.text {
+  position: absolute;
+  color: white;
+  margin: 25px;
+  z-index: 1;
+}
+
+.text p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.text span {
+}
+
+.do-item img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.do-item:nth-child(1) > img {
+  filter: brightness(60%);
+}
+
+.footer {
+  text-align: center;
+}
+
+.footer i {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  background-color: #4e61c0;
+  border-radius: 50%;
+  padding-top: 15px;
+  margin: 60px 10px 20px 10px;
+  box-sizing: border-box;
+}
+
+.source {
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 5px;
 }
