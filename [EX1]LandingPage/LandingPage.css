@@ -42,6 +42,7 @@
 }
 
 .sub-description {
+  max-width: 1900px;
   padding: 50px;
 }
 
@@ -134,6 +135,7 @@
 }
 
 .can-do-title {
+  max-width: 1900px;
   padding: 30px;
 }
 
@@ -149,9 +151,9 @@
 }
 
 .explain-can-do {
-  width: 80%;
-  max-width: 1000px;
-  margin: auto;
+  padding: 1px;
+  max-width: 1900px;
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
 }
@@ -161,8 +163,8 @@
 }
 
 .do-item img {
-  flex-basis: 25%;
   vertical-align: bottom;
+  width: 600px;
 }
 
 .overlay-box {
@@ -216,6 +218,16 @@
   font-size: 14px;
   margin-top: 10px;
   padding: 5px;
+}
+
+@media screen and (max-width: 1500px) {
+  .explain-can-do {
+    flex-direction: column;
+  }
+
+  .do-item {
+    margin: auto;
+  }
 }
 
 /* 모바일 */
