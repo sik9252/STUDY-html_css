@@ -1438,3 +1438,36 @@ linear 이외에 radial, repeating 등등이 더 있음.
 
 ※ 뷰가 1800px이 넘어가면 아래 What we can DO의 flex 박스 형태가 무너짐 (1행에 3개 2행에 1개 이렇게 변함)
 => 일단 1900px 이하의 뷰만을 고려해서 반응형을 제작하였음
+
+---
+
+## Bootstrap
+
+부트스트랩을 설치하려면 html에 아래 2개를 넣어야 한다.
+
+1. bootstrap.min.css 넣기 -> head태그 안에
+
+```html
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+  crossorigin="anonymous"
+/>
+```
+
+2. bootstrap.bundle.min.js 넣기 -> body 태그 안에
+
+```html
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+  crossorigin="anonymous"
+></script>
+```
+
+그리고 사용하고 싶은 것을 아래 링크에서 찾아 사용하면 된다.
+
+https://getbootstrap.com/docs/5.1/getting-started/introduction/
+
+---
