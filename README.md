@@ -1441,7 +1441,7 @@ linear 이외에 radial, repeating 등등이 더 있음.
 
 ---
 
-## Bootstrap
+## Bootstrap 1
 
 부트스트랩을 설치하려면 html에 아래 2개를 넣어야 한다.
 
@@ -1470,4 +1470,52 @@ linear 이외에 radial, repeating 등등이 더 있음.
 
 https://getbootstrap.com/docs/5.1/getting-started/introduction/
 
+### bootstrap 코드 복붙만으로 만든 간단한 레이아웃
+
+<img src="image/bootstrap1.png" style="width:auto; height:auto">
+
 ---
+
+## Bootstrap 2 - grid
+
+Bootstrap을 사용하더라도 결국 세세한 스타일은 직접 커스텀해야하기 마련이다. 그럼에도 Bootstrap을 쓰는 가장 큰 이유는 반응형 레이아웃을 만들때 매우 편리하기 때문이다.
+
+특히 `박스를 균일하게 쪼개고 싶을 때 Bootstrap의 grid 레이아웃`을 사용하면 빠른 구현이 가능하다.
+
+```html
+<div class="row">
+  <div class="col">안녕</div>
+  <div class="col">안녕</div>
+  <div class="col">안녕</div>
+</div>
+```
+
+이런식으로 각각의 박스에는 `col`을 부모에게는 `row`클래스를 부여하면 된다.
+
+이때 row는 내부를 12칸으로 쪼개주는 클래스명이고, `col-3`과 같은 클래스를 사용하면 이는 부모인 row의 12칸 중 3칸을 차지하겠다는 의미이다.
+
+따라서 만약 12칸이 row를 2칸으로 쪼개고 싶으면 col-6을 사용하면 된다.
+
+### col을 이용해 쪼갠것을 반응형으로 구현하기(1)
+
+`col-md-6`, `col-lg-6`(==992px 이상에서만 col-6을 적용해주세요) 처럼 조건문을 사용하면 된다.
+
+```
+  xl -> 1200px
+  lg -> 992px
+  md -> 768px
+  sm -> 576px
+```
+
+예를들어 PC에서는 4열, 태블릿에서는 2열, 모바일에서는 1열로 정렬되게 하려면 아래와 같이 작성하면 된다.
+
+```html
+<div class="row">
+  <div class="col-lg-3 col-md-6">1</div>
+  <div class="col-lg-3 col-md-6">2</div>
+  <div class="col-lg-3 col-md-6">3</div>
+  <div class="col-lg-3 col-md-6">4</div>
+</div>
+```
+
+이러면 lg 사이즈인 992px 이상(PC)에서는 4열, md 사이즈인 768px이상 992px 미만(태블릿)에서는 2열로 정렬되게 된다. 그리고 768px 미만(모바일)으로 가게되면 1열로 정렬된다.
