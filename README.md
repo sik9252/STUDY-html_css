@@ -1519,3 +1519,24 @@ Bootstrap을 사용하더라도 결국 세세한 스타일은 직접 커스텀�
 ```
 
 이러면 lg 사이즈인 992px 이상(PC)에서는 4열, md 사이즈인 768px이상 992px 미만(태블릿)에서는 2열로 정렬되게 된다. 그리고 768px 미만(모바일)으로 가게되면 1열로 정렬된다.
+
+### col을 이용해 쪼갠것을 반응형으로 구현하기(2)
+
+```html
+<div class="row m-2">
+  <div class="col-2 col-lg-2 order-lg-2">
+    <img src="../image/author.png" />
+  </div>
+  <div class="col-10 col-lg-5 order-lg-1">
+    <div>
+      Lorem ipsum dolor sit amet. consectetur adipising elit. Possimus in nisi
+      obcaecati.Natus ipsam.
+    </div>
+    <div class="col-lg-5 order-lg-3"></div>
+  </div>
+</div>
+```
+
+이런식으로 `order-조건문-n`을 이용해 순서도 변경할 수 있다.
+
+---
