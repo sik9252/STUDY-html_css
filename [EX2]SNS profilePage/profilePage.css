@@ -11,3 +11,8 @@
   border: 1px solid lightgrey;
   padding: 3px 12px 5px 12px;
 }
+
+.grey-line {
+  border: 1px solid lightgrey;
+  background-color: lightgrey;
+}
