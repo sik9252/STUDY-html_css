@@ -1595,10 +1595,12 @@ div.main-background .custom {
 이전에 부트스트랩을 배웠으므로 이용해보았다.
 
 <데스크탑>
+
 <img src="image/snsprofile-1.png" style="width:auto; height:auto">
 
 <모바일>
-<img src="image/snsprofile-2.png" style="width:auto; height:auto">
+
+<img src="image/snsprofile-2.png" style="width:100%; height:auto">
 
 위처럼 데스크탑 화면에서와 모바일에서의 레이아웃 정렬이 다르게 보이도록 반응형으로 구현했다.
 
@@ -1609,3 +1611,5 @@ div.main-background .custom {
 2. row, col 사용시 하나의 row는 12칸 이므로 col-n의 n에 적절한 비율(ex. 딱 절반으로 하려면 6:6)을 주면 편하게 깔끔한 레이아웃을 만들수 있다.
 
 3. 이번 프로젝트의 white-box처럼 여러 부분에서 비슷한 형태로 사용될 스타일들은 공통적인 부분을 모아 class를 하나 만든 후 재사용하면 좋다.
+
+---
