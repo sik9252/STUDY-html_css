@@ -939,6 +939,10 @@ a:visited {
 
 hover -> focus -> active 순으로 정의해줘야 정상 작동한다!
 
+※ Pseudo-element도 있다.
+
+pseudo-class와 element를 구분하기 위해 class는 n:n 형태로, element는 n::n 형태로 사용한다. (::after, ::before 이 그나마 자주 사용하는 pseudo-element이다.)
+
 ---
 
 ## OOCSS, BEM
