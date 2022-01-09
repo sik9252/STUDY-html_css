@@ -1617,3 +1617,84 @@ div.main-background .custom {
 3. 이번 프로젝트의 white-box처럼 여러 부분에서 비슷한 형태로 사용될 스타일들은 공통적인 부분을 모아 class를 하나 만든 후 재사용하면 좋다.
 
 ---
+
+## Shadow DOM
+
+HTML 개발시 코드가 너무 복잡해지지 않게 숨겨놓은 요소들을 의미한다.
+
+Shadow DOM을 알면 좋은 이유가 이를 잘 활용하면 커스터마이징 할수 없었던 요소들도 커스터마이징이 가능하게 되기 때문이다.
+
+**스크롤바, 드래그 색상, 파일 업로드 버튼 등**
+
+<예시>
+
+```html
+<input type="text" placeholder="안녕하세요" />
+```
+
+라고 코드를 작성하면 회색 글씨가 input 안에 생성이 된다. 그런데 만약
+그 회색 글씨의 색상을 변경하고 싶으면 어떻게 해야할까?
+
+이러한 경우에 확인해봐야 할 것이 `Shadow DOM`이다.
+
+결론적으로 Shadow DOM을 활성화하고 위의 코드를 개발자 도구에서 까보면 Shadow DOM이 존재하는 것을 볼 수 있다. 이제 여기서 내가 바꾸고 싶은 요소의 속성을 찾아 직접 스타일을 주면 된다.
+
+```css
+/* 크롬, 오페라, 사파리, 엣지 */
+input::-webkit-input-placeholder {
+  color: red;
+}
+```
+
+```css
+/* 파이어폭스 */
+input::-moz-input-placeholder {
+  color: red;
+}
+```
+
+```css
+/* 익스플로러 */
+input::-ms-input-placeholder {
+  color: red;
+}
+```
+
+※ Shadow DOM에 pseudo="" 이런게 없으면 ::로 선택 못하는데 어떻게 하죠?
+
+개발자 도구 하단에Styles(스타일)부분의 user agent stylesheet에서 보면 된다. 대신 appearance:none; 으로 브라우저의 기본 CSS를 안보이게 해줘야 내가 스타일링한것이 제대로 보이게 된다.
+
+### [실습]Progress bar 스타일링 해보기
+
+```html
+<progress value="0.4"></progress>
+```
+
+progress를 하나 생성하면 기본 스타일은 아래와 같다.
+
+<img src="image/base-progressbar.png" style="width:100%; height:auto">
+
+이쁘지 않은 기본 스타일을 바꿔주기 위해 아래와 같은 css 파일을 작성해주었다.
+
+```css
+/* 브라우저의 기본 스타일을 none으로 해줘야 내 스타일이 제대로 적용된다 */
+progress {
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+  background-color: pink;
+  border-radius: 5px;
+}
+```
+
+직접 스타일링해서 바꿔준 progress bar는 아래 이미지와 같다.
+
+<img src="image/styled-progressbar.png" style="width:100%; height:auto">
+
+---
