@@ -13,6 +13,12 @@ progress::-webkit-progress-value {
 }
 
 .progress-bar {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.audio {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
