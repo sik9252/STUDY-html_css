@@ -1698,3 +1698,41 @@ progress::-webkit-progress-value {
 <img src="image/styled-progressbar.png" style="width:100%; height:auto">
 
 ---
+
+## HTML로 video, audio 다루기
+
+### HTML에 비디오 넣는법(1)
+
+```html
+<video src="비디오 경로" controls></video>
+```
+
+- controls 속성은 비디오에 재생 버튼을 만들어 주는것
+
+### HTML에 비디오 넣는법(2)
+
+```html
+<video controls>
+  <source src="비디오 경로" type="video/mp4" />
+</video>
+```
+
+이렇게 작성하는 경우 type을 넣어주는 것이 좋다!
+
+그리고 (2)처럼 작성하면 호환성을 챙길 수 있다는 장점이 있다.
+
+비디오가 자동 재생되게 하려면 `autoplay` 속성을 주면 되는데 크롬 브라우저는 정책상 `autoplay muted` 를 줘야한다.
+
+또 `preload`라는 속성이 있는데 이 속성 값을 `none`으로 주면 미리 다운을 하지 않고, `auto`로 주게되면 미리 다운을 하게 된다. 이 두 값의 중간은 `metadata`로 적당히 미리 다운을 해둔다는 의미를 가지고 있다.
+
+`poster="경로"` 속성은 비디오가 재생되기 이전의 썸네일 이미지를 결정할 수 있다.
+
+`loop`은 비디오를 무한 재생하게 해주는 속성이다.
+
+비디오를 배경으로 넣는 법도 있다는 것을 알아두자. 그런데 요새는 잘 안쓰는듯..
+
+### HTML에 audio 넣는법
+
+```html
+<audio src="오디오 경로"></audio>
+```
