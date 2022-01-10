@@ -1598,11 +1598,11 @@ div.main-background .custom {
 
 이전에 부트스트랩을 배웠으므로 이용해보았다.
 
-<데스크탑>
+<데스크탑(수정)>
 
 <img src="image/snsprofile-1.png" style="width:auto; height:auto">
 
-<모바일>
+<모바일(수정)>
 
 <img src="image/snsprofile-2.png" style="width:100%; height:auto">
 
