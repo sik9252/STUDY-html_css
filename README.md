@@ -1736,3 +1736,79 @@ progress::-webkit-progress-value {
 ```html
 <audio src="오디오 경로"></audio>
 ```
+
+---
+
+## 매끄러운 애니메이션 만들기
+
+### 1) transform
+
+```css
+  /* 회전 */
+  transform: rotate(10deg)
+  /* 좌표이동 */
+  transform: translateX(100px)
+  transform: translateY(100px)
+  /* 크기 변화 */
+  transform: scale(0.5)
+```
+
+### 2) @keyframes
+
+복잡한 애니메이션을 정의할때 사용한다.
+
+```css
+@keyframes 이름 {
+  /* 시작 */
+  0% {
+    transform: translateX(0px);
+  }
+  /* 중간 */
+  50% {
+    transform: translateX(-100px);
+  }
+  75% {
+    transform: translateX(100px);
+  }
+  /* 끝 */
+  100% {
+    transform: translateX(0px);
+  }
+}
+```
+
+@keyframes를 넣고 싶으면 아래와 같이 작성
+
+```css
+.class명:hover {
+  animation-name: 이름;
+  animation-duration: 1s;
+}
+```
+
+[추가지식]
+
+margin 같은것을 이용해서 애니메이션을 주면 안되나요?
+
+=> 결론적으로는 된다. 하지만, transform보다 효율적이지 못하다.
+
+왜?
+
+브라우저가 화면에 그림 그리는 순서
+
+1. Render Tree 생성
+2. Layout 잡기
+3. Paint 하기
+4. Composite(transform, opacity 등) 처리
+
+따라서 transform이 아닌 margin, padding 등을 변경해서 애니메이션을 주게 되면 위의 과정 중 2. Layout 잡기 부터 다시 수행해야하기 때문에 transform을 사용해서 애니메이션을 주는 것이 훨씬 효율적이다.
+
+---
+
+## 애니메이션 만들기 실습
+
+1. 마우스를 올리면 흔들리는 버튼
+
+2. 마우스를 올리면 회전하는 + 기호
+
+3. 수평 슬라이드 메뉴
