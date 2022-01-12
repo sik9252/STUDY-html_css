@@ -1,0 +1,35 @@
+.shake-btn {
+  width: 120px;
+  height: 70px;
+  font-size: 20px;
+  color: white;
+  background-color: #8dc8f8;
+  border: none;
+  border-radius: 5px;
+}
+
+.shake-btn:hover {
+  animation-name: shake;
+  animation-duration: 0.6s;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-7deg);
+  }
+  40% {
+    transform: rotate(7deg);
+  }
+  60% {
+    transform: rotate(-7deg);
+  }
+  80% {
+    transform: rotate(7deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
