@@ -1820,7 +1820,7 @@ margin 같은것을 이용해서 애니메이션을 주면 안되나요?
 
 **<완성본>**
 
-![shakebutton](https://user-images.githubusercontent.com/64947440/149084657-47273152-c5fd-45da-b5f7-1356546a0455.gif)
+![shakebutton](https://user-images.githubusercontent.com/64947440/149085424-b2cae967-e3be-4082-a7d2-6ed27ff12861.gif)
 
 2. 마우스를 올리면 회전하는 + 기호
 
