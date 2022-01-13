@@ -13,6 +13,22 @@
   animation-duration: 0.6s;
 }
 
+.rotate-plus {
+  display: block;
+  font-size: 100px;
+  margin: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.rotate-plus:hover {
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+/* 흔들버튼 애니메이션 */
 @keyframes shake {
   0% {
     transform: rotate(0deg);
@@ -31,5 +47,18 @@
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+/* 회전하는 기호 애니메이션 */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(45deg) scale(1.5);
   }
 }
