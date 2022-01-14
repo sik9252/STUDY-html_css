@@ -1847,3 +1847,26 @@ margin 같은것을 이용해서 애니메이션을 주면 안되나요?
 <br>
 
 ### 3. 수평 슬라이드 메뉴
+
+<과정>
+
+ⓐ 일단 아래의 html 코드처럼 nav 태그와 각종 태그들을 이용해 메뉴를 생성한다.
+
+```html
+<nav class="slide-nav">
+  <h4>Menu</h4>
+  <p>Item</p>
+</nav>
+```
+
+ⓑ slide 애니메이션은 간단하게 만들수 있으므로 그냥 :hover과 transition, trasform을 이용해 만들어준다.
+
+ⓒ item이란 글자가 우측으로 왔다가 기울어진 뒤 다시 돌아가는 애니메이션은 여러 프레임이 함께 있으므로 @keyframes를 사용했다.
+
+기울어지는 것은 **skew**를 사용했다.
+
+<완성본>
+
+![slidemenu](https://user-images.githubusercontent.com/64947440/149517134-9de115c3-1027-419a-8a89-ab30ac17a6e6.gif)
+
+---
