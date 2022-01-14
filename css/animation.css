@@ -28,6 +28,29 @@
   animation-fill-mode: forwards;
 }
 
+.slide-nav {
+  width: 200px;
+  height: 100%;
+  position: fixed;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  text-align: right;
+  z-index: 3;
+  transform: translate(-150px);
+  transition: all 1s;
+}
+
+.slide-nav:hover {
+  transform: translate(0px);
+  text-align: center;
+}
+
+.slide-nav:hover p {
+  animation-name: slide;
+  animation-duration: 1s;
+}
+
 /* 흔들버튼 애니메이션 */
 @keyframes shake {
   0% {
@@ -60,5 +83,18 @@
   }
   100% {
     transform: rotate(45deg) scale(1.5);
+  }
+}
+
+/* item 글자 슬라이딩 애니메이션 */
+@keyframes slide {
+  0% {
+    transform: translate(-250px);
+  }
+  50% {
+    transform: translate(50px) skew(-30deg);
+  }
+  100% {
+    transform: translateX(0px);
   }
 }
