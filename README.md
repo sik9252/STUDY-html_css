@@ -1966,3 +1966,46 @@ fixed랑 유사하다. 하지만 `sticky는 조건부로 fixed`가 되는 것이
 스크롤이 끝나고 부모 박스 경계를 넘어갔을때 sticky가 풀린다.
 
 ---
+
+## CSS 3D 애니메이션
+
+만들수 있는 3D 애니메이션은 많겠지만, 그 중 뒤집히는 사진을 만드는 것을 배웠다.
+
+`3D 회전`은 `transform: rotate()`를 사용하면 된다.
+
+- X축 회전: rotateX()
+- Y축 회전: rotateY()
+- Z축 회전도 있음
+
+위에서 position 속성들을 배울때 absolute라는 것을 사용했다. 이것은 부모를 기준으로 위치를 정해라 라는 의미였고, 실습하면서 이미지 위(안)에 글자를 겹쳐야 하는 것을 구현하는데 사용했었다.
+(그리고 position absolute를 주려면 부모에 relative도 줘야 한다.)
+
+즉, 이번 실습에서 `이미지의 앞면에는 그림`이 `뒷면에는 글자`가 배치되게 하기 위해서는 `absolute를 사용`해야 한다는 것을 알 수 있다!
+
+이제 실제로 애니메이션이 동작하도록 해주는 코드를 작성해보자. (아래)
+
+```css
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: all 1s;
+  transform-style: preserve-3d;
+}
+
+.flip-inner:hover {
+  transform: rotateY(180deg);
+}
+```
+
+`transform-style: preserve-3d`를 이용해야 앞면/뒷면이 구분되어 실제 3D 처럼 동작하게 된다.
+
+또한 `backface-visibility: hidden`을 이용하면 이미지의 앞면과 다르게 보이도록 이미지의 뒷면을 숨길수 있다.
+
+뒷면을 원하는대로 디자인 하려면 뒷면에 해당하는 부분에 class명을 지정해주어 직접 디자인할수도 있다.
+
+<실습 완성본>
+
+![3D-flip-animation](https://user-images.githubusercontent.com/64947440/149725423-6a7575d0-8d14-4b2c-931e-27d8c38fa7a4.gif)
+
+---
