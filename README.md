@@ -1865,8 +1865,86 @@ margin 같은것을 이용해서 애니메이션을 주면 안되나요?
 
 기울어지는 것은 **skew**를 사용했다.
 
-<완성본>
+**<완성본>**
 
 ![slidemenu](https://user-images.githubusercontent.com/64947440/149517134-9de115c3-1027-419a-8a89-ab30ac17a6e6.gif)
+
+---
+
+## Grid 레이아웃
+
+레이아웃 만들기 편하게 `격자`를 미리 만들어두자.
+
+1. 부모 `div태그`에 `display: grid`를 주어 자식 div들은 모두 격자처럼 진열되도록 한다.
+
+2. grid-template-columns: 격자의 열 너비와 갯수
+
+3. grid-template-rows: 격자의 행 높이와 갯수
+
+```html
+<div class="grid-container">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+```
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  grid-template-rows: 100px 100px;
+}
+```
+
+위와 같은 코드를 작성해주면 모눈종이(격자)를 만들수 있다.
+
+> fr 단위를 이용해 폭을 지정해줄수도 있다.
+
+ex) 1fr은 전체 폭에 대해 각각 1배씩 차지하게 하라는 뜻
+
+> grid-gap을 통해 격자 간격을 지정해 줄수도 있다.
+
+<br>
+
+이제 본격적으로 레이아웃을 만들려면 아래 방법 중 1개를 선택해서 구현하면 된다.
+
+1. 내부 박스에 `grid-column`, `grid-row`를 준다.
+
+grid-column: 1/5 -> 세로선을 1~5만큼 차지해주세요
+grid-row: 1/3 -> 가로선을 1~3만큼 차지해주세요
+
+```css
+.grid-nav {
+  grid-column: 1/5;
+}
+
+.grid-sidebar {
+  grid-row: 1/3;
+}
+```
+
+2. 자식에 이름 쓰고 부모는 색칠하기
+
+자식에 이름을 쓰려면 `grid-area: 이름` 형태로 작성하면 된다.
+
+```css
+.grid-nav {
+  grid-area: 헤더;
+}
+.grid-sidebar {
+  grid-area: 사이드;
+}
+```
+
+그리고 부모에 `grid-template-areas`를 이용해 만들 격자의 열과 행 개수에 맞춰 작성해주면 된다. (여기서 .은 격자를 비워두고 싶을때 작성)
+
+```css
+.grid-template-areas: "헤더 헤더 헤더 헤더" "사이드 . . ." "사이드 . . .";
+```
 
 ---
