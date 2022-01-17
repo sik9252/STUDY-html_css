@@ -1948,3 +1948,21 @@ grid-row: 1/3 -> 가로선을 1~3만큼 차지해주세요
 ```
 
 ---
+
+## 추가 position 속성 - sticky
+
+fixed랑 유사하다. 하지만 `sticky는 조건부로 fixed`가 되는 것이다.
+
+```css
+.image {
+  float: right;
+  width: 600px;
+  /* 여기 */
+  position: sticky;
+  top: 100px;
+}
+```
+
+스크롤이 끝나고 부모 박스 경계를 넘어갔을때 sticky가 풀린다.
+
+---
