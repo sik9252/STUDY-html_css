@@ -2054,6 +2054,9 @@ fixed랑 유사하다. 하지만 `sticky는 조건부로 fixed`가 되는 것이
 4. 여기서 .scss 파일에 나의 코드를 직접 작성하고
 
 5. .html 파일에는 3)에서 생성된 .css 파일을 연결해주면 된다.
+
+※ 무작정 sass로 먼저 작성해야지! 라는 마인드보다는 일단 기본 css로 작성하고 겹치는 부분이 많이 보이면 그것들을 모아서 축약해주는것이 헷갈리지 않고 좋다.
+
 ```
 
 <br>
@@ -2272,5 +2275,91 @@ reset.scss와 같이 .css 파일로 변환해줄 필요가 없는 파일들은 �
 Q. 전에 어디서 @import를 사용하는 것을 봤는데 이번에 배울때는 @use만을 배웠다. 왜 @import를 사용하지 않는걸까?
 
 A. 스타일시트 A에 B가 @import로 포함된 경우 첫번째 스타일시트가 다운로드 되기 전까지 다음 스타일시트의 다운로드가 시작되지 않을 가능성이 있기 때문이다.
+
+---
+
+## Sass로 축약하는 연습 해보기
+
+### SASS 실습(1) - 리스트 만들기
+
+조건1) <li> 태그에 acitve라는 클래스가 부여되면 배경이 파란색으로 변해야함
+
+조건2) nesting 문법을 이용
+
+**작성한 코드**
+
+```scss
+.main-list {
+  li {
+    list-style: none;
+    padding: 15px;
+    border: 1px solid lightgrey;
+    // li태그 요소를 클릭하면
+    &:active {
+      background-color: rgb(71, 71, 231);
+      color: white;
+    }
+  }
+}
+```
+
+li 태그가 active 상태(마우스 클릭 상태)가 되면 스타일이 바뀌도록 정하고 싶으면 `li:active{}`를 사용할 수도 있지만, nesting 문법을 사용해 `li 안에 &:active`를 사용할수도 있다.
+
+<br>
+
+### alert 박스 만들기
+
+조건) mixin/include/extend 문법을 이용해 여러 색상의 박스를 만든다.
+
+```scss
+%alert-box {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+@mixin design-alert($bg-color, $f-color) {
+  background-color: $bg-color;
+  color: $f-color;
+}
+
+.green-alert {
+  @extend %alert-box;
+  @include design-alert(rgb(192, 243, 192), darkgreen);
+}
+```
+
+위처럼 공통 수치로 들어갈 요소들은 임시클래스 %로 빼주고 각각의 alert-box에 @extend로 넣어준다.
+
+그리고 @mixin을 이용해 각각의 박스에서 다르게 적용될 요소의 스타일을 구현해준다.
+
+### column 레이아웃 직접 만들어보기
+
+html 코드가 이렇게 있을 때
+
+```html
+<div class="row">
+  <div class="col-6">1번입니다</div>
+  <div class="col-6">2번입니다</div>
+</div>
+```
+
+css 코드를 이렇게 주면 된다.
+
+```scss
+.row {
+  .col-6 {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    background-color: #eee;
+    border: 1px solid lightgray;
+  }
+}
+```
+
+그런데 원래 width를 50%로 주면 반반 차지해서 1행 2열로 나타나야 하는데 padding을 주는 순간 2행 1열이 되어버린다. 이럴때는 해당 태그에 `box-sizing: border-box;`를 주면 된다.(여기서는 div 태그에)
+
+만약 1행 3열을 하고싶다면 width에 (100%/3)이나 33.33%를 주면 된다!
 
 ---
