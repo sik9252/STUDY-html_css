@@ -1,17 +1,48 @@
-.div-blue, .div-red, .div-green {
-  width: 200px;
-  height: 200px;
-  padding: 20px;
+.main-list li {
+  list-style: none;
+  padding: 15px;
+  border: 1px solid lightgrey;
+}
+.main-list li:active {
+  background-color: #4747e7;
+  color: white;
 }
 
-.div-green {
-  background-color: green;
+.yellow-alert, .blue-alert, .green-alert {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
 }
 
-.div-red {
-  background-color: red;
+.green-alert {
+  background-color: #c0f3c0;
+  color: darkgreen;
 }
 
-.div-blue {
-  background-color: blue;
+.blue-alert {
+  background-color: skyblue;
+  color: #3636bb;
+}
+
+.yellow-alert {
+  background-color: #f7f7ae;
+  color: #a0a00e;
+}
+
+.row .col-4, .row .col-6 {
+  float: left;
+  padding: 10px;
+  background-color: #eee;
+  border: 1px solid lightgray;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.row .col-6 {
+  width: 50%;
+}
+.row .col-4 {
+  width: 33.33%;
 }/*# sourceMappingURL=test.css.map */

@@ -1,20 +1,62 @@
-%div {
-  width: 200px;
-  height: 200px;
-  padding: 20px;
+// 리스트 만들기
+.main-list {
+  li {
+    list-style: none;
+    padding: 15px;
+    border: 1px solid lightgrey;
+    &:active {
+      background-color: rgb(71, 71, 231);
+      color: white;
+    }
+  }
 }
 
-.div-green {
-  @extend %div;
-  background-color: green;
+// alert 창 만들기
+%alert-box {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
 }
 
-.div-red {
-  @extend %div;
-  background-color: red;
+@mixin design-alert($bg-color, $f-color) {
+  background-color: $bg-color;
+  color: $f-color;
 }
 
-.div-blue {
-  @extend %div;
-  background-color: blue;
+.green-alert {
+  @extend %alert-box;
+  @include design-alert(rgb(192, 243, 192), darkgreen);
+}
+
+.blue-alert {
+  @extend %alert-box;
+  @include design-alert(skyblue, rgb(54, 54, 187));
+}
+
+.yellow-alert {
+  @extend %alert-box;
+  @include design-alert(rgb(247, 247, 174), rgb(160, 160, 14));
+}
+
+// row, col 만들기
+%col {
+  float: left;
+  padding: 10px;
+  background-color: #eee;
+  border: 1px solid lightgray;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.row {
+  .col-6 {
+    @extend %col;
+    width: 50%;
+  }
+  .col-4 {
+    @extend %col;
+    width: 33.33%;
+  }
 }
