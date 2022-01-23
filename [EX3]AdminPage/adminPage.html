@@ -26,6 +26,8 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <!-- Chartjs library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Main code -->
     <div class="container">
@@ -63,7 +65,7 @@
         <div class="dash-board">
           <!-- cards -->
           <div class="menu-card">
-            <h4 class="my-3">DashBoard</h4>
+            <h4 class="my-3 fonts">DashBoard</h4>
             <div class="row">
               <div class="col-lg-3">
                 <div class="cards color-skyblue">
@@ -123,8 +125,77 @@
               </div>
             </div>
           </div>
-          <div class="earning-graph"></div>
-          <div class="task-list"></div>
+          <div class="row mt-3">
+            <!-- Earning Graph -->
+            <div class="col-lg-8">
+              <div class="card">
+                <div class="card-header fonts">Earnings Overview</div>
+                <div class="card-body">
+                  <canvas id="myChart"></canvas>
+                  <script>
+                    let ctx = document
+                      .getElementById("myChart")
+                      .getContext("2d");
+                    let myChart = new Chart(ctx, {
+                      type: "line",
+                      data: {
+                        labels: [
+                          "January",
+                          "February",
+                          "March",
+                          "April",
+                          "May",
+                          "June",
+                          "July",
+                        ],
+                        datasets: [
+                          {
+                            label: "Monthly",
+                            fill: true,
+                            tension: 0.3,
+                            data: [12, 19, 3, 5, 15, 23, 45],
+                            backgroundColor: "#494CB4",
+                            borderColor: "#494CB4",
+                            borderWidth: 1,
+                          },
+                        ],
+                      },
+                      options: {
+                        scales: {
+                          y: {
+                            beginAtZero: true,
+                            ticks: {
+                              stepSize: 5,
+                            },
+                          },
+                        },
+                      },
+                    });
+                  </script>
+                </div>
+              </div>
+            </div>
+            <!-- Task Card -->
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-header fonts">Tasks</div>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    Borrowed Items
+                    <span class="task-badge rounded-pill bg-primary">14</span>
+                  </li>
+                  <li class="list-group-item">
+                    Trello requests
+                    <span class="task-badge rounded-pill bg-primary">2</span>
+                  </li>
+                  <li class="list-group-item">
+                    Marked Comments
+                    <span class="task-badge rounded-pill bg-primary">1</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
