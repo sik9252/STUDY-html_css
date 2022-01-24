@@ -1,3 +1,50 @@
+.contents-box {
+  padding: 0px 10px 10px 0px;
+}
+
+.left-menu {
+  position: fixed;
+  width: 150px;
+  height: 100vh;
+  background: #494cb4;
+  color: white;
+  font-size: 18px;
+  z-index: 3;
+  /* 애니메이션 시작 */
+  transition: all 0.5s;
+  transform: translateX(-100px);
+}
+
+.left-menu:hover {
+  /* 애니메이션 최종 */
+  transition: all 0.5s;
+  transform: translateX(0px);
+}
+
+/* 아이콘은 따로 스타일 줘야 애니메이션 정상 작동 */
+.left-menu i {
+  /* 아이콘 애니메이션 시작 */
+  transition: all 0.5s;
+  transform: translateX(100px);
+}
+
+.left-menu:hover i {
+  /* 아이콘 애니메이션 최종 */
+  transform: translateX(0px);
+}
+
+.left-menu-item {
+  padding: 10px;
+}
+
+.left-menu-item span {
+  padding: 5px;
+}
+
+.main-contents {
+  margin-left: 70px;
+}
+
 .fonts {
   font-weight: bold;
   font-size: 20px;
